@@ -66,7 +66,7 @@ class TranslateController extends Controller
                 'found' => (bool) $kamus,
                 'isyarat_id' => $kamus?->id,
                 'tipe_media' => $kamus?->tipe_media,
-                'url_media' => $kamus ? asset('storage/' . $kamus->url_media) : null,
+                'url_media' => $kamus ? $this->formatMediaUrl($kamus->url_media) : null,
                 'durasi_ms' => $kamus?->durasi_ms ?? 2000,
             ];
         }
@@ -185,7 +185,7 @@ class TranslateController extends Controller
 
         $detail->transform(function ($item) {
             if ($item->url_media) {
-                $item->url_media = asset('storage/' . $item->url_media);
+                $item->url_media = $this->formatMediaUrl($item->url_media);
             }
             return $item;
         });
@@ -194,5 +194,32 @@ class TranslateController extends Controller
             'terjemahan' => $terjemahan,
             'detail' => $detail,
         ]);
+    }
+
+    /**
+     * Pastikan URL media berbentuk path relatif diawali /storage/...
+     * agar otomatis mengikuti domain/host pengguna (termasuk tunnel & IP lokal).
+     */
+    protected function formatMediaUrl(?string $path): ?string
+    {
+        if (!$path) {
+            return null;
+        }
+
+        // Jika path berupa full URL (misal http://127.0.0.1:8000/...), ambil path-nya saja
+        if (str_starts_with($path, 'http://') || str_starts_with($path, 'https://')) {
+            $parsed = parse_url($path, PHP_URL_PATH);
+            return $parsed ? '/' . ltrim($parsed, '/') : $path;
+        }
+
+        if (str_starts_with($path, '/storage/')) {
+            return $path;
+        }
+
+        if (str_starts_with($path, 'storage/')) {
+            return '/' . $path;
+        }
+
+        return '/storage/' . ltrim($path, '/');
     }
 }

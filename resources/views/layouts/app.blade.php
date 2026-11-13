@@ -20,190 +20,213 @@
     :root {
       --bg-page: #f8fafc;
       --bg-card: #ffffff;
-      --bg-subtle: #f1f5f9;
-      --bg-input: #ffffff;
+      --bg-subtle: #eff6ff;
+      --bg-input: #f3f4f6;
       --txt-main: #1e293b;
       --txt-sub: #64748b;
       --txt-muted: #94a3b8;
       --border-color: #e2e8f0;
-      --border-focus: #3b82f6;
+      --border-focus: #2563eb;
       --primary: #2563eb;
       --primary-hover: #1d4ed8;
+      --primary-active: #1e40af;
+      --primary-secondary: #3b82f6;
       --primary-light: #eff6ff;
+      --primary-glow: rgba(37, 99, 235, 0.16);
       --danger: #ef4444;
+      --danger-light: #fef2f2;
       --success: #10b981;
+      --success-light: #ecfdf5;
       --warning: #f59e0b;
+      --warning-light: #fffbeb;
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
       --radius-xl: 24px;
       --radius-pill: 9999px;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-      --shadow-md: 0 4px 14px rgba(0,0,0,0.06);
-      --shadow-btn: 0 4px 14px rgba(37,99,235,0.25);
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+      --shadow-md: 0 4px 16px -1px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 10px 28px -3px rgba(15, 23, 42, 0.1), 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+      --shadow-btn: 0 4px 14px rgba(37, 99, 235, 0.22);
       --fs: 16px;
+      --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     html[data-theme="gelap"] {
-      --bg-page: #0f172a;
-      --bg-card: #1e293b;
-      --bg-subtle: #334155;
-      --bg-input: #0f172a;
+      --bg-page: #090d16;
+      --bg-card: #111827;
+      --bg-subtle: #1e293b;
+      --bg-input: #0b1120;
       --txt-main: #f8fafc;
       --txt-sub: #cbd5e1;
-      --txt-muted: #94a3b8;
-      --border-color: #334155;
-      --border-focus: #60a5fa;
+      --txt-muted: #64748b;
+      --border-color: #1e293b;
+      --border-focus: #3b82f6;
       --primary: #3b82f6;
       --primary-hover: #2563eb;
-      --primary-light: #1e3a8a;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-      --shadow-md: 0 4px 14px rgba(0,0,0,0.3);
-      --shadow-btn: 0 4px 14px rgba(59,130,246,0.3);
+      --primary-active: #1d4ed8;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      --danger: #f87171;
+      --danger-light: rgba(239, 68, 68, 0.15);
+      --success: #34d399;
+      --success-light: rgba(16, 185, 129, 0.15);
+      --warning: #fbbf24;
+      --warning-light: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 14px 34px rgba(0, 0, 0, 0.55);
+      --shadow-btn: 0 4px 16px rgba(59, 130, 246, 0.32);
     }
 
-    /* Logo Switching untuk Mode Terang & Mode Gelap */
-    .logo-dark {
-      display: none !important;
+    /* Browser Surfaces */
+    ::selection {
+      background: rgba(37, 99, 235, 0.22);
+      color: var(--primary);
     }
-    .logo-light {
-      display: inline-block !important;
-    }
-
-    html[data-theme="gelap"] .logo-dark {
-      display: inline-block !important;
-    }
-    html[data-theme="gelap"] .logo-light {
-      display: none !important;
+    html[data-theme="gelap"] ::selection {
+      background: rgba(59, 130, 246, 0.35);
+      color: #93c5fd;
     }
 
-    /* Styling Landing Page Khusus Dark Mode */
-    .landing-hero {
-      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
-      border: 1px solid #dbeafe;
-      border-radius: var(--radius-xl);
-      padding: 3.5rem 3rem;
-      margin-bottom: 2.5rem;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
     }
-    .landing-hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      color: #1e293b;
-      line-height: 1.1;
-      margin-bottom: 0.6rem;
+    ::-webkit-scrollbar-track {
+      background: transparent;
     }
-    .landing-hero .hero-sub {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #475569;
-      margin-bottom: 1.2rem;
+    ::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: var(--radius-pill);
     }
-    .landing-hero .hero-desc {
-      font-size: 1.05rem;
-      color: #64748b;
-      max-width: 620px;
-      line-height: 1.6;
-      margin-bottom: 2.2rem;
-    }
-
-    html[data-theme="gelap"] .landing-hero {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
-      border-color: #334155 !important;
-      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 25px rgba(59, 130, 246, 0.12) !important;
-    }
-    html[data-theme="gelap"] .landing-hero h1 {
-      color: #f8fafc !important;
-    }
-    html[data-theme="gelap"] .landing-hero .hero-sub {
-      color: #93c5fd !important;
-    }
-    html[data-theme="gelap"] .landing-hero .hero-desc {
-      color: #cbd5e1 !important;
-    }
-
-    .feature-icon-circle {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #eff6ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4em;
-      flex-shrink: 0;
-      transition: background 0.2s;
-    }
-    html[data-theme="gelap"] .feature-icon-circle {
-      background: rgba(59, 130, 246, 0.18) !important;
-      color: #93c5fd !important;
-    }
-
-    .step-icon-circle {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: #f1f5f9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3em;
-      margin-bottom: 1rem;
-      transition: background 0.2s;
-    }
-    html[data-theme="gelap"] .step-icon-circle {
-      background: #334155 !important;
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--txt-muted);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden], .hidden { display: none !important; }
+    
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       font-size: var(--fs);
-      line-height: 1.5;
+      line-height: 1.55;
       background: var(--bg-page);
       color: var(--txt-main);
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color var(--transition-smooth), color var(--transition-smooth);
     }
 
-    a { color: var(--primary); text-decoration: none; transition: all 0.2s; }
-    a:hover { opacity: 0.85; }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: opacity var(--transition-fast), color var(--transition-fast);
+    }
+    a:hover { opacity: 0.88; }
+
+    /* Logo Switching */
+    .logo-dark { display: none !important; }
+    .logo-light { display: inline-block !important; }
+    html[data-theme="gelap"] .logo-dark { display: inline-block !important; }
+    html[data-theme="gelap"] .logo-light { display: none !important; }
 
     /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1.4rem;
-      border: 0;
+      gap: 0.55rem;
+      padding: 0.68rem 1.4rem;
+      border: 1px solid transparent;
       border-radius: var(--radius-pill);
       background: var(--primary);
       color: #ffffff;
       font-weight: 600;
-      font-size: 0.95em;
+      font-size: 0.93em;
       cursor: pointer;
       box-shadow: var(--shadow-btn);
-      transition: all 0.2s ease;
+      transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
       text-decoration: none;
+      line-height: 1.25;
+      user-select: none;
+      white-space: nowrap;
     }
-    .btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
-    .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+    .btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1.5px);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.32);
+      color: #ffffff;
+    }
+    .btn:active {
+      background: var(--primary-active);
+      transform: translateY(0);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
     .btn.sec {
-      background: var(--bg-subtle);
+      background: var(--bg-card);
       color: var(--txt-main);
-      box-shadow: none;
+      box-shadow: var(--shadow-sm);
       border: 1px solid var(--border-color);
     }
-    .btn.sec:hover { background: var(--border-color); }
-    .btn.red { background: var(--danger); box-shadow: 0 4px 14px rgba(239,68,68,0.25); color: #fff; }
-    .btn.sm { padding: 0.4rem 0.9rem; font-size: 0.85em; }
+    .btn.sec:hover {
+      background: var(--bg-subtle);
+      border-color: var(--txt-muted);
+      color: var(--txt-main);
+      box-shadow: var(--shadow-md);
+    }
+    .btn.red {
+      background: var(--danger);
+      box-shadow: 0 4px 14px rgba(239, 68, 68, 0.28);
+      color: #ffffff;
+    }
+    .btn.red:hover {
+      background: #dc2626;
+      box-shadow: 0 6px 18px rgba(220, 38, 38, 0.35);
+    }
+    .btn.sm {
+      padding: 0.45rem 1rem;
+      font-size: 0.86em;
+    }
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--txt-sub);
+      cursor: pointer;
+      transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .icon-btn:hover {
+      background: var(--bg-subtle);
+      color: var(--txt-main);
+      transform: translateY(-1px);
+      border-color: var(--txt-muted);
+    }
+    .icon-btn:active {
+      transform: translateY(0);
+    }
 
     /* Inputs */
     input[type="text"], input[type="email"], input[type="password"], input[type="number"], select, textarea {
       width: 100%;
-      padding: 0.75rem 1.1rem;
+      padding: 0.75rem 1.15rem;
       border: 1.5px solid var(--border-color);
       border-radius: var(--radius-md);
       background: var(--bg-input);
@@ -211,16 +234,17 @@
       font-size: 0.95em;
       font-family: inherit;
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
     }
     input:focus, select:focus, textarea:focus {
       border-color: var(--border-focus);
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+      box-shadow: 0 0 0 3.5px var(--primary-glow);
     }
     input:disabled, textarea:disabled {
       background: var(--bg-subtle);
-      color: var(--txt-sub);
+      color: var(--txt-muted);
       cursor: not-allowed;
+      border-color: var(--border-color);
     }
     .input-pill {
       border-radius: var(--radius-pill) !important;
@@ -228,10 +252,11 @@
 
     label {
       display: block;
-      margin: 0.9rem 0 0.35rem;
+      margin: 0.9rem 0 0.4rem;
       font-weight: 600;
-      font-size: 0.9em;
+      font-size: 0.88em;
       color: var(--txt-sub);
+      letter-spacing: 0.2px;
     }
 
     /* Cards */
@@ -239,27 +264,37 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-lg);
-      padding: 1.4rem;
+      padding: 1.5rem;
       margin: 1rem 0;
       box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .card-hover:hover {
+      box-shadow: var(--shadow-md);
+      border-color: rgba(37, 99, 235, 0.25);
     }
 
     /* Layout Shell */
     .app-shell {
       display: flex;
       min-height: 100vh;
-      max-width: 1400px;
+      max-width: 1360px;
       margin: 0 auto;
     }
 
     .app-sidebar {
-      width: 260px;
-      padding: 1.8rem 1.2rem;
+      width: 270px;
+      padding: 2rem 1.4rem;
       background: var(--bg-card);
       border-right: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      flex-shrink: 0;
     }
 
     .brand-logo {
@@ -269,68 +304,58 @@
       font-weight: 800;
       font-size: 1.35em;
       color: var(--txt-main);
-      margin-bottom: 2rem;
-      padding: 0 0.5rem;
+      margin-bottom: 2.2rem;
+      padding: 0 0.4rem;
       text-decoration: none;
     }
-    .brand-logo span { color: var(--primary); }
+
+    .nav-links-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      width: 100%;
+    }
 
     .nav-link {
       display: flex;
       align-items: center;
       gap: 0.85rem;
-      padding: 0.85rem 1.2rem;
+      padding: 0.82rem 1.2rem;
       border-radius: var(--radius-pill);
       color: var(--txt-sub);
       font-weight: 600;
-      font-size: 0.95em;
-      transition: all 0.2s;
+      font-size: 0.94em;
+      transition: background-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+      text-decoration: none;
     }
     .nav-link:hover {
       background: var(--bg-subtle);
       color: var(--txt-main);
+      transform: translateX(2px);
     }
     .nav-link.active {
-      background: var(--bg-subtle);
+      background: var(--primary-light);
       color: var(--primary);
       font-weight: 700;
     }
     .nav-link svg {
       width: 20px;
       height: 20px;
-      stroke-width: 2;
+      flex-shrink: 0;
     }
 
     .app-main {
       flex: 1;
-      padding: 2rem;
-      max-width: 960px;
+      padding: 2rem 2.5rem;
+      max-width: 1020px;
+      min-width: 0;
     }
 
     .app-header-bar {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .user-avatar-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--txt-main);
-      font-size: 1.2em;
-      text-decoration: none;
-      transition: transform 0.2s, background 0.2s;
-    }
-    .user-avatar-btn:hover {
-      background: var(--border-color);
-      transform: scale(1.05);
+      margin-bottom: 1.8rem;
     }
 
     /* Tabs */
@@ -341,18 +366,25 @@
       border-radius: var(--radius-pill);
       margin-bottom: 1.2rem;
       border: 1px solid var(--border-color);
+      gap: 3px;
     }
     .tab-btn {
       background: transparent;
       border: 0;
-      padding: 0.55rem 1.2rem;
+      padding: 0.6rem 1.3rem;
       font-size: 0.9em;
       font-weight: 600;
       color: var(--txt-sub);
       cursor: pointer;
       border-radius: var(--radius-pill);
-      transition: all 0.2s;
+      transition: background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
       font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tab-btn:hover {
+      color: var(--txt-main);
     }
     .tab-btn.active {
       background: var(--bg-card);
@@ -380,55 +412,126 @@
       object-fit: contain;
     }
 
-    /* Lists & Tables */
+    /* Items & Tables */
     .item-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.1rem 1.3rem;
+      padding: 1.15rem 1.4rem;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
       margin: 0.7rem 0;
       box-shadow: var(--shadow-sm);
-      transition: transform 0.15s, box-shadow 0.15s;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
     }
     .item-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
+      border-color: rgba(37, 99, 235, 0.25);
     }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0.6rem 0;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    td, th { padding: 0.85rem 0.75rem; border-bottom: 1px solid var(--border-color); text-align: left; }
+    th { font-weight: 600; color: var(--txt-sub); font-size: 0.88em; }
 
     .row { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
     .warn { color: var(--danger); font-size: 0.9em; margin: 0.6rem 0; font-weight: 500; }
     .ok { color: var(--success); font-size: 0.9em; margin: 0.6rem 0; font-weight: 500; }
-    table { width: 100%; border-collapse: collapse; }
-    td, th { padding: 0.75rem 0.6rem; border-bottom: 1px solid var(--border-color); text-align: left; }
 
-    /* Responsive */
-    @media (max-width: 820px) {
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes pulseMic {
+      0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.45); }
+      70% { box-shadow: 0 0 0 14px rgba(37, 99, 235, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+    }
+    .animate-spin {
+      animation: spin 1s linear infinite;
+    }
+    .page-fade {
+      animation: fadeIn var(--transition-smooth) forwards;
+    }
+
+    /* Mobile Header & Drawer */
+    .mobile-topbar {
+      display: none;
+    }
+    .mobile-drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(4px);
+      z-index: 998;
+      opacity: 0;
+      transition: opacity var(--transition-smooth);
+    }
+    .mobile-drawer-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 290px;
+      max-width: 85vw;
+      background: var(--bg-card);
+      border-right: 1px solid var(--border-color);
+      z-index: 999;
+      transform: translateX(-100%);
+      transition: transform var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1.2rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    @media (max-width: 860px) {
       .app-shell { flex-direction: column; }
-      .app-sidebar {
-        width: 100%;
-        padding: 0.8rem 1rem;
-        flex-direction: row;
+      .app-sidebar { display: none !important; }
+      .mobile-topbar {
+        display: flex;
         align-items: center;
         justify-content: space-between;
-        border-right: 0;
+        padding: 0.85rem 1.2rem;
+        background: var(--bg-card);
         border-bottom: 1px solid var(--border-color);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow-sm);
       }
-      .brand-logo { margin-bottom: 0; }
-      .app-main { padding: 1.2rem; }
-      .nav-links-wrap {
-        display: flex;
-        gap: 0.4rem;
+      .app-main {
+        padding: 1.25rem 1rem !important;
+        max-width: 100% !important;
       }
-      .nav-link span { display: none; }
-      .nav-link { padding: 0.5rem; }
+      .app-header-bar {
+        display: none !important;
+      }
     }
   </style>
 
   <script>
-    // Pengaturan konfigurasi aplikasi (disimpan di browser)
     const DEF = {
       theme: (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'gelap' : 'terang',
       size: 'sedang',
@@ -439,23 +542,28 @@
     };
     const S = Object.assign({}, DEF, (()=>{try{return JSON.parse(localStorage.getItem('sibisa'))||{}}catch(e){return {}}})());
     const saveS = () => localStorage.setItem('sibisa', JSON.stringify(S));
+
+    const SVG_ICONS = {
+      sun: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>',
+      moon: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
+    };
+
     function applyS(){
       const isDark = S.theme === 'gelap';
       document.documentElement.dataset.theme = isDark ? 'gelap' : 'terang';
       document.documentElement.style.setProperty('--fs', {kecil:'14px',sedang:'16px',besar:'18px'}[S.size]);
       
-      // Sinkronisasi teks / ikon tombol toggle tema jika ada
       document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
-        btn.innerHTML = isDark ? '☀️' : '🌙';
+        btn.innerHTML = isDark ? SVG_ICONS.sun : SVG_ICONS.moon;
         btn.setAttribute('aria-label', isDark ? 'Ganti ke Tema Terang' : 'Ganti ke Tema Gelap');
         btn.title = isDark ? 'Ganti ke Tema Terang' : 'Ganti ke Tema Gelap';
       });
     }
+
     function toggleTheme(){
       S.theme = S.theme === 'gelap' ? 'terang' : 'gelap';
       saveS();
       applyS();
-      // Sinkronisasi radio di halaman pengaturan jika sedang dibuka
       document.querySelectorAll('input[name="theme"]').forEach(r => {
         r.checked = (r.value === S.theme);
       });
@@ -466,27 +574,103 @@
 <body>
 
 @hasSection('bare')
-  @yield('content')
+  <div class="page-fade">
+    @yield('content')
+  </div>
 @else
+  <!-- Mobile Topbar (< 860px) -->
+  <header class="mobile-topbar">
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+      <button type="button" id="mobileDrawerOpen" class="icon-btn" aria-label="Buka Menu Navigasi">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="/" style="display: inline-flex; align-items: center;">
+        <img src="{{ asset('logo/PACKAGES-04.png') }}" alt="SI-BISA" class="logo-light" style="height: 34px; width: auto; object-fit: contain;">
+        <img src="{{ asset('logo/SI-BISA Black.png') }}?v=2" alt="SI-BISA" class="logo-dark" style="height: 34px; width: auto; object-fit: contain;">
+      </a>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <button type="button" class="theme-toggle-btn icon-btn" onclick="toggleTheme()" title="Ganti Tema">
+      </button>
+      <a href="/akun" class="icon-btn" title="Akun Saya">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay & Container -->
+  <div id="mobileDrawerOverlay" class="mobile-drawer-overlay"></div>
+  <nav id="mobileDrawer" class="mobile-drawer" aria-label="Menu Navigasi Mobile">
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem;">
+      <a href="/" style="display: inline-flex; align-items: center;">
+        <img src="{{ asset('logo/PACKAGES-04.png') }}" alt="SI-BISA" class="logo-light" style="height: 38px; width: auto; object-fit: contain;">
+        <img src="{{ asset('logo/SI-BISA Black.png') }}?v=2" alt="SI-BISA" class="logo-dark" style="height: 38px; width: auto; object-fit: contain;">
+      </a>
+      <button type="button" id="mobileDrawerClose" class="icon-btn" aria-label="Tutup Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="nav-links-wrap">
+      <a href="/app" class="nav-link {{ request()->is('app') ? 'active' : '' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span>Beranda</span>
+      </a>
+      <a href="/riwayat" class="nav-link {{ request()->is('riwayat*') ? 'active' : '' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Riwayat</span>
+      </a>
+      <a href="/pengaturan" class="nav-link {{ request()->is('pengaturan') ? 'active' : '' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        <span>Pengaturan</span>
+      </a>
+      <a href="/akun" class="nav-link {{ request()->is('akun') ? 'active' : '' }}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        <span>Akun Saya</span>
+      </a>
+    </div>
+
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.6rem;">
+      <a href="/" class="nav-link" style="color: var(--txt-sub);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        <span>Landing Page</span>
+      </a>
+      @auth
+        @if(auth()->user()->role === 'admin')
+          <a href="/admin" class="btn sm" style="width: 100%;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <span>Panel Admin</span>
+          </a>
+        @endif
+      @else
+        <a href="/login" class="btn sec sm" style="width: 100%;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Login Admin</span>
+        </a>
+      @endauth
+    </div>
+  </nav>
+
   <div class="app-shell">
-    <!-- Sidebar Navigation -->
+    <!-- Desktop Sidebar Navigation -->
     <aside class="app-sidebar">
-      <a class="brand-logo" href="/" style="display: inline-flex; align-items: center; margin-bottom: 2rem; padding: 0 0.2rem;">
-        <img src="{{ asset('logo/PACKAGES-04.png') }}" alt="SI-BISA" class="logo-light" style="height: 46px; width: auto; max-width: 180px; object-fit: contain;">
-        <img src="{{ asset('logo/SI-BISA Black.png') }}?v=2" alt="SI-BISA" class="logo-dark" style="height: 46px; width: auto; max-width: 180px; object-fit: contain;">
+      <a class="brand-logo" href="/" style="display: inline-flex; align-items: center; margin-bottom: 2.2rem; padding: 0 0.2rem;">
+        <img src="{{ asset('logo/PACKAGES-04.png') }}" alt="SI-BISA" class="logo-light" style="height: 44px; width: auto; max-width: 180px; object-fit: contain;">
+        <img src="{{ asset('logo/SI-BISA Black.png') }}?v=2" alt="SI-BISA" class="logo-dark" style="height: 44px; width: auto; max-width: 180px; object-fit: contain;">
       </a>
 
-      <div class="nav-links-wrap" style="display:flex; flex-direction:column; gap:0.4rem; width:100%">
+      <div class="nav-links-wrap">
         <a href="/app" class="nav-link {{ request()->is('app') ? 'active' : '' }}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
           <span>Beranda</span>
         </a>
         <a href="/riwayat" class="nav-link {{ request()->is('riwayat*') ? 'active' : '' }}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
           <span>Riwayat</span>
         </a>
         <a href="/pengaturan" class="nav-link {{ request()->is('pengaturan') ? 'active' : '' }}">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
           <span>Pengaturan</span>
         </a>
       </div>
@@ -494,18 +678,20 @@
       <!-- Footer Sidebar Navigasi -->
       <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 0.6rem;">
         <a href="/" class="nav-link" style="color: var(--txt-sub);" title="Kembali ke Landing Page">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
           <span>Landing Page</span>
         </a>
         @auth
           @if(auth()->user()->role === 'admin')
-            <a href="/admin" class="btn sm" style="border-radius: var(--radius-pill); font-size: 0.85em; text-decoration: none;">
-              🛠️ Panel Admin
+            <a href="/admin" class="btn sm" style="text-decoration: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              <span>Panel Admin</span>
             </a>
           @endif
         @else
-          <a href="/login" class="btn sec sm" style="border-radius: var(--radius-pill); font-size: 0.85em; text-decoration: none;">
-            🔐 Login Admin
+          <a href="/login" class="btn sec sm" style="text-decoration: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Login Admin</span>
           </a>
         @endauth
       </div>
@@ -513,35 +699,38 @@
 
     <!-- Main Workspace -->
     <main class="app-main">
-      <div class="app-header-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+      <div class="app-header-bar">
         <!-- Tombol Kembali ke Landing Page -->
-        <a href="/" class="btn sec sm" style="border-radius: var(--radius-pill); font-size: 0.85em; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <a href="/" class="btn sec sm" style="text-decoration: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
           <span>Landing Page</span>
         </a>
 
-        <!-- Bar Kanan: Tombol Switch Tema + Tombol Login Admin + Avatar Profil -->
-        <div class="row" style="gap: 0.8rem;">
-          <button type="button" class="theme-toggle-btn btn sec sm" onclick="toggleTheme()" title="Ganti Tema" style="border-radius: var(--radius-pill); padding: 0.45rem 0.8rem; font-size: 1.05em; display: inline-flex; align-items: center; justify-content: center; cursor: pointer;">
-            🌓
+        <!-- Bar Kanan: Switch Tema + Login Admin + Avatar Profil -->
+        <div class="row" style="gap: 0.65rem;">
+          <button type="button" class="theme-toggle-btn icon-btn" onclick="toggleTheme()" title="Ganti Tema">
           </button>
           @guest
-            <a href="/login" class="btn sec sm" style="border-radius: var(--radius-pill); font-size: 0.85em; text-decoration: none;">
-              🔐 Login Admin
+            <a href="/login" class="btn sec sm" style="text-decoration: none;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Login Admin</span>
             </a>
           @else
             @if(auth()->user()->role === 'admin')
-              <a href="/admin" class="btn sec sm" style="border-radius: var(--radius-pill); font-size: 0.85em; text-decoration: none;">
-                🛠️ Panel Admin
+              <a href="/admin" class="btn sec sm" style="text-decoration: none;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <span>Panel Admin</span>
               </a>
             @endif
           @endguest
-          <a href="/akun" class="user-avatar-btn" title="Akun Saya">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <a href="/akun" class="icon-btn" title="Akun Saya">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
           </a>
         </div>
       </div>
-      @yield('content')
+      <div class="page-fade">
+        @yield('content')
+      </div>
     </main>
   </div>
 @endif
@@ -551,6 +740,34 @@
   const csrf = document.querySelector('meta[name=csrf-token]')?.content || '';
   const esc = t => String(t ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   
+  // Handler Hamburger Mobile Drawer
+  document.addEventListener('DOMContentLoaded', () => {
+    const openBtn = $('mobileDrawerOpen');
+    const closeBtn = $('mobileDrawerClose');
+    const drawer = $('mobileDrawer');
+    const overlay = $('mobileDrawerOverlay');
+    if (openBtn && drawer && overlay) {
+      const toggleDrawer = (open) => {
+        if (open) {
+          drawer.classList.add('open');
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        } else {
+          drawer.classList.remove('open');
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+      openBtn.addEventListener('click', () => toggleDrawer(true));
+      if (closeBtn) closeBtn.addEventListener('click', () => toggleDrawer(false));
+      overlay.addEventListener('click', () => toggleDrawer(false));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) toggleDrawer(false);
+      });
+    }
+    applyS();
+  });
+
   async function api(url, o = {}){
     const h = {'Accept':'application/json','X-CSRF-TOKEN':csrf};
     if (o.json){ h['Content-Type']='application/json'; o.body = JSON.stringify(o.json); delete o.json; }
@@ -561,37 +778,130 @@
   }
   
   const fmtTgl = s => {
+    if (!s) return '—';
     try {
-      return new Date(s.replace(' ','T')+'Z').toLocaleString('id-ID',{dateStyle:'long',timeStyle:'short'}) + ' WIB';
+      let d;
+      if (s instanceof Date) {
+        d = s;
+      } else {
+        let str = String(s).trim();
+        // Hanya tambahkan T dan Z jika format MySQL standard "YYYY-MM-DD HH:mm:ss" tanpa timezone
+        if (/^\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2}$/.test(str)) {
+          str = str.replace(' ', 'T') + 'Z';
+        }
+        d = new Date(str);
+      }
+      if (isNaN(d.getTime())) {
+        return String(s || '—');
+      }
+      const formatted = d.toLocaleString('id-ID', {
+        dateStyle: 'long',
+        timeStyle: 'short'
+      });
+      if (!formatted || formatted.includes('Invalid')) {
+        return String(s || '—');
+      }
+      return formatted + ' WIB';
     } catch(e){
-      return s;
+      return String(s || '—');
     }
   };
 
   // ---- Pemutar urutan isyarat visual BISINDO ----
-  function Player(stage, label, counter){
+  function Player(stage, label, counter, timeDisplay){
     const P = {items:[], i:-1, t:null, playing:false};
-    
+    const timeEl = timeDisplay || document.getElementById('videoTime');
+
+    const fmtTime = sec => {
+      if (!sec || isNaN(sec) || !isFinite(sec)) return '0:00';
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${m}:${s < 10 ? '0' : ''}${s}`;
+    };
+
+    const toRelUrl = url => {
+      if (!url) return '';
+      try {
+        if (url.startsWith('http://') || url.startsWith('https://')) {
+          const u = new URL(url);
+          return u.pathname + u.search + u.hash;
+        }
+      } catch(e) {}
+      return url;
+    };
+
     const render = () => {
       clearTimeout(P.t);
       const it = P.items[P.i];
       if (!it) return;
-      
+
+      const mediaUrl = toRelUrl(it.url_media);
       if (label) label.textContent = `${it.kata_asli} → ${it.kata_dasar}`;
       if (counter) counter.textContent = `Gerakan ${P.i+1} dari ${P.items.length}`;
-      
-      stage.innerHTML = it.tipe_media === 'video'
-        ? `<video src="${esc(it.url_media)}" autoplay muted playsinline></video>`
-        : `<img src="${esc(it.url_media)}" alt="${esc(it.kata_dasar)}">`;
-        
-      const v = stage.querySelector('video');
-      if (v) v.playbackRate = S.speed;
-      
-      if (P.playing) {
-        P.t = setTimeout(P.next, (it.durasi_ms || 2000) / S.speed);
+
+      if (it.tipe_media === 'video') {
+        stage.innerHTML = `<video id="activeVideoPlayer" playsinline muted autoplay preload="auto" webkit-playsinline src="${esc(mediaUrl)}" style="max-width:100%; max-height:340px; border-radius:var(--radius-md); object-fit:contain;"></video>`;
+
+        const v = stage.querySelector('video');
+        if (v) {
+          v.playbackRate = S.speed || 1;
+          v.muted = true;
+          v.defaultMuted = true;
+          v.playsInline = true;
+
+          v.addEventListener('loadedmetadata', () => {
+            if (timeEl && v.duration) timeEl.textContent = `0:00 / ${fmtTime(v.duration)}`;
+          });
+          v.addEventListener('timeupdate', () => {
+            if (timeEl && v.duration) {
+              timeEl.textContent = `${fmtTime(v.currentTime)} / ${fmtTime(v.duration)}`;
+            }
+          });
+
+          // Panggil load() sebelum play() sesuai rekomendasi browser mobile
+          try {
+            v.load();
+          } catch(e) {
+            console.warn('video.load error:', e);
+          }
+
+          // Mainkan video dengan penanganan promise play() aman
+          const playPromise = v.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(err => {
+              console.warn('Autoplay video dijeda oleh kebijakan browser mobile:', err);
+            });
+          }
+
+          // Lanjut ke kata berikutnya saat video selesai diputar
+          v.addEventListener('ended', () => {
+            if (P.playing) {
+              clearTimeout(P.t);
+              P.next();
+            }
+          });
+
+          // Fallback timer jika event ended tidak terpicu
+          if (P.playing) {
+            const fallbackMs = Math.max((it.durasi_ms || 2000), 1000) / (S.speed || 1) + 600;
+            P.t = setTimeout(() => {
+              if (P.playing) P.next();
+            }, fallbackMs);
+          }
+        }
+      } else {
+        // Tipe media gambar / GIF
+        stage.innerHTML = `<img src="${esc(mediaUrl)}" alt="${esc(it.kata_dasar)}" style="max-width:100%; max-height:340px; border-radius:var(--radius-md); object-fit:contain;">`;
+        if (timeEl) {
+          const durSec = (it.durasi_ms || 2000) / 1000;
+          timeEl.textContent = `0:00 / ${fmtTime(durSec)}`;
+        }
+        if (P.playing) {
+          P.t = setTimeout(P.next, (it.durasi_ms || 2000) / (S.speed || 1));
+        }
       }
     };
-    
+
     P.add = list => {
       const was = P.items.length;
       P.items.push(...list.filter(x => x.url_media));
@@ -604,7 +914,7 @@
         render();
       }
     };
-    
+
     P.next = () => {
       if (P.i < P.items.length - 1){
         P.i++;
@@ -615,35 +925,46 @@
       } else {
         P.playing = false;
         clearTimeout(P.t);
+        const v = stage.querySelector('video');
+        if (v && !v.paused) v.pause();
       }
     };
-    
+
     P.prev = () => {
       if (P.i > 0){
         P.i--;
         render();
       }
     };
-    
+
     P.clear = () => {
       clearTimeout(P.t);
       P.items = [];
       P.i = -1;
       P.playing = false;
-      stage.textContent = '—';
+      stage.innerHTML = '<div style="color:var(--txt-muted); text-align:center; padding:2rem;"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:0.6rem; opacity:0.6;"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg><div style="font-size:0.95em;">Visualisasi bahasa isyarat BISINDO akan ditampilkan di sini</div></div>';
       if (label) label.textContent = '';
       if (counter) counter.textContent = 'Gerakan 0 dari 0';
+      if (timeEl) timeEl.textContent = '0:00 / 0:00';
     };
-    
+
     P.toggle = () => {
       P.playing = !P.playing;
+      const v = stage.querySelector('video');
       if (P.playing){
         if (P.i >= P.items.length - 1 && !S.repeat) P.i = 0;
+        if (v && v.paused) {
+          const p = v.play();
+          if (p !== undefined) p.catch(() => {});
+        } else {
+          render();
+        }
+      } else {
+        clearTimeout(P.t);
+        if (v && !v.paused) v.pause();
       }
-      render();
-      if (!P.playing) clearTimeout(P.t);
     };
-    
+
     return P;
   }
 </script>

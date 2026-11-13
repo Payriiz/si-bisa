@@ -17,3 +17,9 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
+.env
+.agent/
+.impeccable/
+/vendor/
+.phpunit.result.cache
