@@ -63,7 +63,7 @@ Aplikasi dibangun dengan arsitektur 3-tier:
 
 1. **Clone Repository & Masuk ke Direktori**:
    ```bash
-   git clone https://github.com/Dzann/SI-BISA.git
+   git clone https://github.com/Payriiz/si-bisa.git
    cd SI-BISA
    ```
 
